@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/lowellbander/analytics/issues"
   },
-  "homepage": "https://github.com/lowellbander/analytics#readme"
+  "homepage": "https://github.com/lowellbander/analytics#readme",
+  "dependencies": {
+    "express": "^4.15.2"
+  }
 }
