@@ -10,15 +10,21 @@
           text-align: center;
           padding-top: 85px;
         }
+
+        button {
+          margin: 10px;
+        }
       </style>
 
       <script>
-        function onClick() {
-          document.getElementById("clickMe").innerHTML = 'Thanks!';
-          document
-            .getElementById("clickMe")
-            .className = 'btn btn-success btn-lg';
-          FB.AppEvents.logEvent("button_click", null, {});
+        function onClick(id) {
+          markSuccess(id);
+          FB.AppEvents.logEvent("button_click", null, {id});
+        }
+        function markSuccess(id) {
+          const button = document.getElementById(id);
+          button.className = 'btn btn-success btn-lg';
+          button.innerHTML = 'Thanks!';
         }
       </script>
 
@@ -26,14 +32,21 @@
     <body>
       <div>
         <h1>Hello!</h1>
-        <br />
         <button
-          id="clickMe"
+          id="green"
           type="button"
           class="btn btn-primary btn-lg"
-          onclick="onClick()"
+          onclick="onClick('green')"
         >
           Click Me
+        </button>
+        <button
+          id="red"
+          type="button"
+          class="btn btn-danger btn-lg"
+          onclick="onClick('red')"
+        >
+          Don't Click Me
         </button>
       </div>
     </body>
